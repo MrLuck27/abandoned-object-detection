@@ -1,0 +1,31 @@
+{
+  "total_images": 0,
+  "total_person_instances": 0,
+  "total_bag_instances": 0,
+  "splits": {
+    "train": {
+      "num_images": 0,
+      "person_instances": 0,
+      "bag_instances": 0,
+      "avg_width": 0.0,
+      "avg_height": 0.0,
+      "avg_box_norm_area": 0.0
+    },
+    "val": {
+      "num_images": 0,
+      "person_instances": 0,
+      "bag_instances": 0,
+      "avg_width": 0.0,
+      "avg_height": 0.0,
+      "avg_box_norm_area": 0.0
+    },
+    "test": {
+      "num_images": 0,
+      "person_instances": 0,
+      "bag_instances": 0,
+      "avg_width": 0.0,
+      "avg_height": 0.0,
+      "avg_box_norm_area": 0.0
+    }
+  }
+}

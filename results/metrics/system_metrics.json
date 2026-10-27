@@ -1,0 +1,41 @@
+[
+  {
+    "true_positives": 0,
+    "false_positives": 0,
+    "false_negatives": 1,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "false_alarms_per_hour": 0.0,
+    "mean_time_to_alert_seconds": 0.0,
+    "total_monitoring_hours": 0.0208,
+    "experiment": "Exp A: Detector Only (Naive)",
+    "avg_fps": 38.0
+  },
+  {
+    "true_positives": 0,
+    "false_positives": 0,
+    "false_negatives": 1,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "false_alarms_per_hour": 0.0,
+    "mean_time_to_alert_seconds": 0.0,
+    "total_monitoring_hours": 0.0208,
+    "experiment": "Exp B: Detector + ByteTrack (No Owner)",
+    "avg_fps": 38.1
+  },
+  {
+    "true_positives": 0,
+    "false_positives": 0,
+    "false_negatives": 1,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "false_alarms_per_hour": 0.0,
+    "mean_time_to_alert_seconds": 0.0,
+    "total_monitoring_hours": 0.0208,
+    "experiment": "Exp D: Full Proposed Pipeline (Temporal State Machine)",
+    "avg_fps": 36.2
+  }
+]

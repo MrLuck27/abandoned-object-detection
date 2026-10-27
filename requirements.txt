@@ -1,0 +1,35 @@
+# Unattended / Abandoned Object Detection with Temporal Reasoning
+# Dependencies for Python 3.11
+
+# Core Deep Learning & Computer Vision
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.3.0
+opencv-python>=4.8.0
+numpy>=1.24.0,<2.0.0
+scipy>=1.10.0
+pandas>=2.0.0
+
+# Tracking & Metrics
+lapx>=0.5.5
+filterpy>=1.4.5
+
+# Configuration & Hardware Monitoring
+pyyaml>=6.0
+tqdm>=4.65.0
+psutil>=5.9.0
+nvidia-ml-py>=12.535.0
+
+# Visualization & Dashboard
+streamlit>=1.30.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+pillow>=10.0.0
+
+# Model Export & Inference Optimization
+onnx>=1.14.0
+onnxruntime>=1.16.0
+
+# Testing & Code Quality
+pytest>=7.4.0
+pytest-cov>=4.1.0

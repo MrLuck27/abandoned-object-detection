@@ -1,0 +1,4 @@
+experiment,precision,recall,f1_score,false_alarms_per_hour,mean_time_to_alert_seconds,avg_fps
+Exp A: Detector Only (Naive),0.0,0.0,0.0,0.0,0.0,38.0
+Exp B: Detector + ByteTrack (No Owner),0.0,0.0,0.0,0.0,0.0,38.1
+Exp D: Full Proposed Pipeline (Temporal State Machine),0.0,0.0,0.0,0.0,0.0,36.2

@@ -1,0 +1,42 @@
+[
+  {
+    "runtime": "PyTorch",
+    "device": "cpu",
+    "model_size_mb": 6.25,
+    "mean_latency_ms": 61.37,
+    "median_latency_ms": 60.24,
+    "p95_latency_ms": 71.66,
+    "p99_latency_ms": 80.84,
+    "fps": 16.29,
+    "gpu_vram_used_mb": "N/A",
+    "power_stats": {
+      "avg_power_w": "Not Available",
+      "peak_power_w": "Not Available",
+      "fps": 16.29,
+      "fps_per_watt": "Not Available"
+    }
+  },
+  {
+    "runtime": "ONNX Runtime",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "model_size_mb": 12.26,
+    "mean_latency_ms": 50.16,
+    "median_latency_ms": 50.0,
+    "p95_latency_ms": 57.36,
+    "p99_latency_ms": 61.74,
+    "fps": 19.93,
+    "gpu_vram_used_mb": "Managed by Provider",
+    "power_stats": {
+      "avg_power_w": "Not Available",
+      "peak_power_w": "Not Available",
+      "fps": 19.93,
+      "fps_per_watt": "Not Available"
+    }
+  },
+  {
+    "runtime": "TensorRT",
+    "status": "Not Available (Engine file does not exist. Run scripts/build_tensorrt.py on a machine with TensorRT)."
+  }
+]

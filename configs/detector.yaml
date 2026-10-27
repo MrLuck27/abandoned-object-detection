@@ -1,0 +1,59 @@
+# Detector Configuration for Abandoned Object Detection
+# Compatible with Ultralytics YOLO (v8 / v11 nano/small)
+
+# Base model and architecture
+model: "yolov8n.pt"         # Base pretrained model for transfer learning
+pretrained: true           # Use pretrained COCO weights
+num_classes: 2             # Target classes: 0: person, 1: bag
+
+# Class mapping from source datasets (e.g. COCO class IDs to internal IDs)
+# COCO: 0=person, 24=backpack, 26=handbag, 28=suitcase
+coco_class_mapping:
+  0: 0    # person -> person (0)
+  24: 1   # backpack -> bag (1)
+  26: 1   # handbag -> bag (1)
+  28: 1   # suitcase -> bag (1)
+
+target_names:
+  0: "person"
+  1: "bag"
+
+# Training Hyperparameters
+epochs: 50
+imgsz: 640
+batch: 16
+lr0: 0.01                  # Initial learning rate (SGD/AdamW)
+lrf: 0.01                  # Final learning rate fraction (lr0 * lrf)
+optimizer: "auto"          # 'SGD', 'Adam', 'AdamW', 'auto'
+weight_decay: 0.0005
+momentum: 0.937
+warmup_epochs: 3.0
+patience: 15               # Early stopping patience (epochs without validation improvement)
+
+# Data augmentation
+augment:
+  hsv_h: 0.015             # Hue augmentation
+  hsv_s: 0.7               # Saturation augmentation
+  hsv_v: 0.4               # Value/brightness augmentation
+  degrees: 0.0             # Rotation (keep 0 for surveillance upright objects)
+  translate: 0.1           # Translation
+  scale: 0.5               # Scale (+/- gain)
+  shear: 0.0               # Shear
+  perspective: 0.0         # Perspective
+  flipud: 0.0              # Up-down flip (no upside-down cameras)
+  fliplr: 0.5              # Left-right flip
+  mosaic: 1.0              # Mosaic augmentation
+  mixup: 0.1               # Mixup augmentation
+  copy_paste: 0.1          # Segment copy-paste
+
+# Hardware and System
+device: "0"                # CUDA device ID (e.g. '0' or 'cpu')
+workers: 4                 # Dataloader workers
+seed: 42                   # Reproducibility seed
+
+# Output and Logging
+project: "results/models"
+name: "yolo_abandoned_detector"
+exist_ok: true
+save: true
+save_period: 5

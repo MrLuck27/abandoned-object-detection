@@ -1,0 +1,71 @@
+# End-to-End System Configuration: Abandoned Object Detection with Temporal Reasoning
+
+detection:
+  model_path: "yolov8n.pt"         # Base pretrained weights or custom trained weights
+  confidence_threshold: 0.25       # Minimum detection confidence (lower for grainy/laptop cameras)
+  iou_threshold: 0.45              # NMS IoU threshold
+  device: "0"                      # '0' for GPU, 'cpu' for CPU
+  target_classes:
+    person: 0
+    bag: 1
+  # COCO class IDs to internal mappings for zero-shot / baseline detector
+  coco_mapping:
+    0: 0    # person -> 0
+    24: 1   # backpack -> 1
+    26: 1   # handbag -> 1
+    28: 1   # suitcase -> 1
+    63: 1   # laptop -> 1
+
+tracking:
+  tracker_type: "bytetrack"        # 'bytetrack' or 'deepsort'
+  track_thresh: 0.20               # Detection confidence threshold for track initiation (lowered for bags)
+  match_thresh: 0.80               # IoU matching threshold
+  track_buffer: 60                 # Max missed frames before dropping track (approx 2s at 30fps)
+  min_box_area: 100                # Ignore micro-detections / noise
+  frame_rate: 30                   # Nominal video FPS for time calculations
+
+association:
+  # Spatial and Temporal Owner-Bag Association Weights
+  # owner_score = w_dist * S_dist + w_temp * S_temp + w_motion * S_motion
+  weights:
+    distance: 0.45                 # Proximity weight
+    temporal_proximity: 0.35       # Temporal consistency / persistence weight
+    motion_consistency: 0.20       # Directional/velocity correlation weight
+  max_association_distance: 250.0  # Max distance in pixels to consider candidate owner
+  min_attended_duration: 1.0       # Minimum seconds of proximity before establishing confirmed owner
+  candidate_history_len: 45        # History frames maintained for spatial correlation
+  min_association_score: 0.40      # Minimum composite score to assign ownership
+
+temporal:
+  # Abandonment and Separation Thresholds
+  abandonment_time_threshold: 15.0 # Seconds object must remain separated & stationary before alert
+  owner_distance_threshold: 180.0  # Pixel distance beyond which owner is classified as separated
+  owner_moving_away_speed: 1.5     # Pixel/frame speed threshold indicating owner departure
+  object_movement_threshold: 25.0  # Max allowed displacement (pixels) over temporal window to remain STATIONARY
+  stationary_window_seconds: 3.0   # Window duration for stationary verification
+  occlusion_grace_period: 3.0      # Seconds to maintain state if bag or owner temporarily occluded
+  owner_return_distance: 120.0     # Distance at which returning owner causes transition back to ATTENDED
+  alert_cooldown_seconds: 30.0     # Seconds before repeating an audio/visual trigger for same object
+  use_temporal_model: false        # Use learned Temporal MLP/LSTM instead of pure state machine
+
+visualization:
+  show_bounding_boxes: true
+  show_track_ids: true
+  show_owner_association: true
+  show_state_banner: true
+  show_distance_vector: true
+  show_timer: true
+  show_fps: true
+  colors:
+    person: [255, 128, 0]          # Cyan-blue (BGR)
+    bag_attended: [0, 200, 0]      # Green (BGR)
+    bag_moving_away: [0, 165, 255] # Orange (BGR)
+    bag_separated: [0, 215, 255]   # Yellow (BGR)
+    bag_suspected: [0, 100, 255]   # Dark Orange (BGR)
+    bag_abandoned: [0, 0, 255]     # Red (BGR)
+    bag_recovered: [255, 200, 0]   # Light Cyan (BGR)
+
+hardware:
+  monitor_gpu: true
+  monitor_power: true
+  log_interval_frames: 30

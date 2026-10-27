@@ -1,0 +1,44 @@
+{
+  "campus_true_abandoned.mp4": {
+    "video": "campus_true_abandoned.mp4",
+    "duration_seconds": 25.0,
+    "events": [
+      {
+        "object_id": "B01",
+        "owner_id": "P01",
+        "separation_start": 6.0,
+        "abandoned_at": 21.0,
+        "recovered_at": null,
+        "event_type": "ABANDONED"
+      }
+    ]
+  },
+  "campus_owner_returns.mp4": {
+    "video": "campus_owner_returns.mp4",
+    "duration_seconds": 25.0,
+    "events": [
+      {
+        "object_id": "B01",
+        "owner_id": "P01",
+        "separation_start": 6.0,
+        "abandoned_at": null,
+        "recovered_at": 16.0,
+        "event_type": "RECOVERED"
+      }
+    ]
+  },
+  "campus_normal_attended.mp4": {
+    "video": "campus_normal_attended.mp4",
+    "duration_seconds": 25.0,
+    "events": [
+      {
+        "object_id": "B01",
+        "owner_id": "P01",
+        "separation_start": null,
+        "abandoned_at": null,
+        "recovered_at": null,
+        "event_type": "NOT_ABANDONED"
+      }
+    ]
+  }
+}
