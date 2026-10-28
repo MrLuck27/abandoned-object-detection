@@ -1,0 +1,9 @@
+services:
+  abandoned-object-detection:
+    build: .
+    container_name: abandoned_object_detector
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
